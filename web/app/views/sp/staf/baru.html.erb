@@ -1,0 +1,55 @@
+<%= form_for(@data, url: url_for(action: 'baru_post'), multipart: true ) do |f| %>
+<div class="form-group">
+  <label for="">Nama Lengkap</label>
+  <%= f.text_field :staf_nama, {class: 'form-control'} %>
+</div>
+
+<div class="form-group">
+  <label for="">Tanggal Lahir</label>
+  <%= f.date_field :staf_tgl_lahir, {class: 'form-control'} %>
+</div>
+<div class="form-group">
+  <label for="">Tempat Lahir</label>
+  <%= f.text_field :staf_tempat_lahir, {class: 'form-control'} %>
+</div>
+<div class="form-group">
+  <label for="">Jenis Kelamin</label>
+  <%= f.select(:staf_jk, ['Laki-laki', 'Perempuan'], {}, { class: 'form-control form-control-lg' } ) %>
+</div>
+<div class="form-group">
+  <label for="">Status Kepegawaian</label>
+  <%= f.select(:staf_status_kepegawaian, ['Pegawai', 'Non Pegawai'], {}, { class: 'form-control form-control-lg' } ) %>
+</div>
+<div class="form-group">
+  <label for="">Alamat Lengkap</label>
+  <%= f.text_field :staf_alamat, {class: 'form-control'} %>
+</div>
+<div class="form-group">
+  <label for="">No Telepon</label>
+  <%= f.text_field :staf_telepon, {class: 'form-control'} %>
+</div>
+<div class="form-group">
+  <label for="">Email</label>
+  <%= f.text_field :staf_email, {class: 'form-control'} %>
+</div>
+<div class="form-group">
+  <label for="">Pendidikan Terakhir</label>
+  <%= f.text_field :staf_pendidikan_terakhir, {class: 'form-control'} %>
+</div>
+<div class="form-group">
+  <label for="">Agama</label>
+  <%= f.text_field :staf_agama, {class: 'form-control'} %>
+</div>
+<div class="form-group">
+  <label for="">Status Perkawinan</label>
+  <%= f.text_field :staf_status_perkawinan, {class: 'form-control'} %>
+</div>
+<div class="form-group">
+  <label for="">Photo</label>
+  <%= f.file_field :staf_photo, {class: 'form-control'} %>
+</div>
+
+<div class="form-group">
+  <input type="submit" value="Masukan Data" class="btn btn-primary">
+</div>
+<% end %>

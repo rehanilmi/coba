@@ -1,0 +1,34 @@
+<%= form_for(@data, url: url_for(action: 'edit_post', pesan_id: @data.id), multipart: true ) do |f| %>
+
+<h1>Pesan</h1>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <tr>
+      <td>Nama Pengirim</td>
+      <td>:</td>
+      <td><%= @data.pesan_nama_pengirim %></td>
+    </tr>
+    <tr>
+      <td>Telepon Pengirim</td>
+      <td>:</td>
+      <td><%= @data.pesan_telepon_pengirim %></td>
+    </tr>
+    <tr>
+      <td>Email Pengirim</td>
+      <td>:</td>
+      <td><%= @data.pesan_email_pengirim %></td>
+    </tr>
+    <tr>
+      <td>Subjek</td>
+      <td>:</td>
+      <td><%= @data.pesan_subjek%></td>
+    </tr>
+    <tr>
+      <td>Isi</td>
+      <td>:</td>
+      <td><%= @data.pesan_isi %></td>
+    </tr>
+  </table>
+</div>
+
+<% end %>

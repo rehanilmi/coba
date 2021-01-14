@@ -1,0 +1,58 @@
+<%= form_for(@data, url: url_for(action: 'edit_post', guru_id: @data.id), multipart: true ) do |f| %>
+<div class="form-group">
+  <label for="">Nama Lengkap</label>
+  <%= f.text_field :guru_nama, {class: 'form-control'} %>
+</div>
+
+<div class="form-group">
+  <label for="">Tanggal Lahir</label>
+  <%= f.text_field :guru_tgl_lahir, {class: 'form-control'} %>
+</div>
+<div class="form-group">
+  <label for="">Tempat Lahir</label>
+  <%= f.text_field :guru_tempat_lahir, {class: 'form-control'} %>
+</div>
+<div class="form-group">
+  <label for="">Jenis Kelamin</label>
+  <%= f.text_field :guru_jk, {class: 'form-control'} %>
+</div>
+<div class="form-group">
+  <label for="">Status Kepegawaian</label>
+  <%= f.text_field :guru_status_kepegawaian, {class: 'form-control'} %>
+</div>
+<div class="form-group">
+  <label for="">Alamat</label>
+  <%= f.text_field :guru_alamat, {class: 'form-control'} %>
+</div>
+<div class="form-group">
+  <label for="">No Hp</label>
+  <%= f.text_field :guru_telepon, {class: 'form-control'} %>
+</div>
+<div class="form-group">
+  <label for="">Email</label>
+  <%= f.text_field :guru_email, {class: 'form-control'} %>
+</div>
+<div class="form-group">
+  <label for="">Bidang Studi</label>
+  <%= f.text_field :guru_bidang_studi, {class: 'form-control'} %>
+</div>
+<div class="form-group">
+  <label for="">Pendidikan Terakhir</label>
+  <%= f.text_field :guru_pendidikan_terakhir, {class: 'form-control'} %>
+</div>
+<div class="form-group">
+  <label for="">Agama</label>
+  <%= f.text_field :guru_agama, {class: 'form-control'} %>
+</div>
+<div class="form-group">
+  <label for="">Status Perkawinan</label>
+  <%= f.text_field :guru_status_perkawinan, {class: 'form-control'} %>
+</div>
+<div class="form-group">
+  <label for="">Photo</label>
+  <%= f.file_field :guru_photo, {class: 'form-control'} %>
+</div>
+<div class="form-group">
+  <input type="submit" value="Perbarui Data" class="btn btn-primary">
+</div>
+<% end %>

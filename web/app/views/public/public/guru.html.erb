@@ -1,0 +1,38 @@
+<main role="main">
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <section id="latest-guru" class="nb-5">
+      <div class="container" style=text-align:center>
+        <div class="row">
+          <% @gurus.each do |guru| %>
+          <div class="col-4">
+              <div>
+                <img src="<%= guru.guru_photo %>" style="width:200px">
+              </div>
+              <div ><h3><%= guru.guru_nama %></h3></div>
+              <div><%= guru.guru_alamat %></div>
+              <div><%= guru.guru_telepon %></div>
+              <div><%= guru.guru_email %></div>
+              <div><%= guru.guru_bidang_studi %></div>
+              <br>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      </section>
+      <!-- <h1 class="display-3">Hello, world!</h1>
+      <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+      <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more »</a></p> -->
+    </div>
+  </div>
+
+
+
+
+
+
+    <hr>
+
+</main>

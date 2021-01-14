@@ -1,0 +1,31 @@
+<main role="main">
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <section id="pengumuman" class="nb-5">
+      <div class="container">
+        <div class="row">
+            <% @infos.each do |info| %>
+          <div class="col">
+            <div>
+              <img src="<%= info.info_photo %>" alt="" width=60% height=15% style="display: block; margin:auto">
+            </div>
+              <h2 style="text-align:center; font-family:verdana; font-size:40px"><%= info.info_judul %></h2>
+              <p style="text-align:justify; font-size:15px; text-indent:50px"><%= info.info_isi %></p>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      </section>
+      <!-- <h1 class="display-3">Hello, world!</h1>
+      <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+      <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more »</a></p> -->
+    </div>
+  </div>
+
+</main>
+    <!--//END HEADER -->
+    <!--============================= ABOUT =============================-->
+    <section class="clearfix about about-style2">
+        <div class="container">

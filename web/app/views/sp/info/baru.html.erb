@@ -1,0 +1,25 @@
+<%= form_for(@data, url: url_for(action: 'baru_post'), multipart: true ) do |f| %>
+<div class="form-group">
+  <label for="">Judul</label>
+  <%= f.text_field :info_judul, {class: 'form-control'} %>
+</div>
+
+<div class="form-group">
+  <label for="">Penulis</label>
+  <%= f.text_field :info_created_by, {class: 'form-control'} %>
+</div>
+
+<div class="form-group">
+  <label for="">Isi</label>
+  <%= f.text_area :info_isi, {class: 'form-control'} %>
+</div>
+
+<div class="form-group">
+  <label for="">Photo</label>
+  <%= f.file_field :info_photo, {class: 'form-control'} %>
+</div>
+
+<div class="form-group">
+  <input type="submit" value="Masukan" class="btn btn-primary">
+</div>
+<% end %>

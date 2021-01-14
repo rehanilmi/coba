@@ -1,0 +1,32 @@
+<main role="main">
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <h2 class="h3 mb-3 font-weight-normal" style="text-align:center">Silahkan Masuk</h2>
+    </div>
+    <br>
+      <%= form_tag('/public/auth2/auth2/masuk') do %>
+        <div class="row justify-content-center">
+          <div class="container; col-lg-6">
+            <form class="form-signin" width=50%>
+            <label for="inputEmail" class="sr-only">Email address</label>
+            <input type="text" name="pesertaa_email" class="form-control" placeholder="Email" />
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" class="form-control" name="pesertaa_password" placeholder="Password">
+            <div class="checkbox mb-3">
+              <label>
+                <input type="checkbox" value="remember-me"> Remember me
+              </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+          </form>
+        </div>
+      </div>
+    <% end %>
+      <!-- <h1 class="display-3">Hello, world!</h1>
+      <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+      <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more »</a></p> -->
+
+    </div>
+</main>

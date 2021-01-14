@@ -1,0 +1,79 @@
+<main role="main">
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <!-- <h1 class="display-3">Hello, world!</h1>
+      <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+      <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more »</a></p> -->
+      <div class="row justify-content-center">
+      <!-- <div class="card">
+      <div class="card-body login-card-body"> -->
+        <!-- <p class="login-box-msg">Daftar</p> -->
+          <div class="container">
+            <h2 class="h3 mb-3 font-weight-normal" style="text-align:center">Silahkan Mendaftar</h2>
+          </div>
+
+          <div class="container; col-lg-6">
+            <%= form_tag('/public/auth2/auth2/daftar') do %>
+
+              <div class="input-group mb-3">
+                <input type="text" name="pesertaa_email" class="form-control" placeholder="Email" />
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-envelope"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="input-group mb-3">
+                <input type="password" class="form-control" name="pesertaa_password" placeholder="Password">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-lock"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="input-group mb-3">
+                <input type="password" class="form-control" name="password_confirm" placeholder="Konfirmasi Password">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-lock"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col" style="display: block; margin:auto">
+                  <button type="submit" class="btn btn-primary btn-block">Daftar</button>
+                </div>
+              </div>
+
+              <!-- <div class="row">
+                <div class="col-8">
+                  <div class="icheck-primary">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">
+                      Remember Me
+                    </label>
+                  </div>
+                </div> -->
+                <!-- /.col -->
+
+                <!-- /.col -->
+
+              <!-- <div class="input-group mb-3">
+                <a href="#" class="fright">Lupa Password?</a>
+              </div> -->
+
+            <% end %>
+          </div>
+
+        </div>
+      <!-- /.login-card-body -->
+    </div>
+    <!-- </div>
+    </div> -->
+  </div>
+</main>

@@ -1,0 +1,59 @@
+<%= form_for(@data, url: url_for(action: 'baru_post'), multipart: true ) do |f| %>
+
+<div class="container">
+  <div class="row">
+      <h2>Silahkan Masukan Pesan</h2>
+  </div>
+  <br>
+    <div class="form-group">
+      <div class="row">
+        <%= f.label 'Nama Pengirim', { class: 'col-md-2' } %>
+        <div class="col-md-10">
+            <%= f.text_field :pesan_nama_pengirim, { class: 'form-control', placeholder: '' } %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+        <%= f.label 'Telepon Pengirim', { class: 'col-md-2' } %>
+        <div class="col-md-10">
+            <%= f.text_field :pesan_telepon_pengirim, { class: 'form-control', placeholder: '' } %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+        <%= f.label 'Email Pengirim', { class: 'col-md-2' } %>
+        <div class="col-md-10">
+            <%= f.text_field :pesan_email_pengirim, { class: 'form-control', placeholder: '' } %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+        <%= f.label 'Subjek', { class: 'col-md-2' } %>
+        <div class="col-md-10">
+            <%= f.text_field :pesan_subjek, { class: 'form-control', placeholder: '' } %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+        <%= f.label 'Pesan', { class: 'col-md-2' } %>
+        <div class="col-md-10">
+            <%= f.text_area :pesan_isi, { class: 'form-control', placeholder: '' } %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col">
+            <input type="submit" value="Masukan Pesan" class="btn btn-primary">
+        </div>
+    </div>
+  </div>
+<% end %>

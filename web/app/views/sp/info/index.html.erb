@@ -1,0 +1,33 @@
+
+<!-- <div class="row">
+  <a href="/sp/info/baru" class="btn btn-primary">Baru</a>
+</div> -->
+
+<div class="table-responsive">
+<table class="table table-striped table-bordered">
+  <thead>
+    <a href="/sp/info/baru" class="btn btn-primary">Baru</a>
+    <tr>
+      <th>Aksi</th>
+      <th>#</th>
+      <th>Judul</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <% @datas.each do |f| %>
+    <tr>
+      <td>
+        <a href="<%= url_for action: 'view', info_id: f.id %>" class="btn btn-small btn-default">View</a>
+        <a href="<%= url_for action: 'edit', info_id: f.id %>" class="btn btn-small btn-default">Edit</a>
+          <%= link_to 'Hapus',url_for(action: :hapus, info_id: f.id), method: :delete, data: {confirm: "Apakah Anda yakin ingin menghapus data tersebut?"}, class: 'btn btn-small btn-default' %>
+      </td>
+      <td><%= f.id %></td>
+      <td><%= f.info_judul %></td>
+    </tr>
+    <% end %>
+
+
+  </tbody>
+</table>
+</div>

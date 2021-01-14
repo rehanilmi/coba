@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html class="js">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>PPDB Online</title>
+
+        <!--Favicon -->
+        <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+
+        <link rel="stylesheet" href="/sp_assets/plugins/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="/sp_assets/css/icons.css">
+        <link rel="stylesheet" href="/sp_assets/css/style.css">
+        <link rel="stylesheet" href="/sp_assets/plugins/scroll-bar/jquery.mCustomScrollbar.css">
+        <link rel="stylesheet" href="/sp_assets/plugins/toggle-menu/sidemenu.css">
+        <link rel="stylesheet" href="/sp_assets/plugins/chartist/chartist.css">
+        <link rel="stylesheet" href="/sp_assets/plugins/chartist/chartist-plugin-tooltip.css">
+        <link rel="stylesheet" href="/sp_assets/plugins/fullcalendar/stylesheet1.css">
+        <link rel="stylesheet" href="/sp_assets/plugins/morris/morris.css">
+
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+        <script src="/sp_assets/plugins/nicescroll/jquery.nicescroll.min.js"></script>
+        <script src="/sp_assets/plugins/scroll-up-bar/dist/scroll-up-bar.min.js"></script>
+        <script src="/sp_assets/plugins/toggle-menu/sidemenu.js"></script>
+        <script src="/sp_assets/plugins/scroll-bar/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script src="/sp_assets/plugins/jquery-sparkline/dist/jquery.sparkline.js"></script>
+        <script src="/sp_assets/plugins/echarts/dist/echarts.js"></script>
+        <script src="/sp_assets/plugins/othercharts/jquery.knob.js"></script>
+        <script src="/sp_assets/plugins/othercharts/jquery.sparkline.min.js"></script>
+        <script src="/sp_assets/plugins/morris/morris.min.js"></script>
+        <script src="/sp_assets/plugins/morris/raphael.min.js"></script>
+        <script src="/sp_assets/js/scripts.js"></script>
+
+        <!-- include summernote css/js -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
+
+
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
+
+        <style media="screen">
+            .modal-backdrop {
+                z-index: -100;
+            }
+
+            .modal.show .modal-dialog {
+                margin-top: 65px;
+            }
+
+            .form-control::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+                color:    #ccc;
+            }
+            .form-control:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                color:    #ccc;
+                opacity:  1;
+            }
+            .form-control::-moz-placeholder { /* Mozilla Firefox 19+ */
+                color:    #ccc;
+                opacity:  1;
+            }
+            .form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+                color:    #ccc;
+            }
+
+            .no-z-index {
+                z-index: 0 !important;
+            }
+
+            .modal-header {
+                padding: 1.5rem !important;
+            }
+
+            .modal-body {
+                padding: 1.5rem !important;
+            }
+
+            .modal-footer {
+                padding: 1.5rem !important;
+            }
+
+            .header-brand-img {
+                height: 3.5rem !important;
+            }
+
+            .bg-secondary {
+                background-color: #6c757d!important;
+            }
+
+            .style-icon {
+                padding-bottom: 1rem !important;
+            }
+        </style>
+
+        <script type="text/javascript">
+            var filtering_and_go = function (urlfor, page, rows, sort, order) {
+
+                var result = [];
+
+                $.each($('#modal_search input'), function (a, b) {
+                    var field = b.name;
+                    var op = $(this).data('op');
+                    var valx = $(this).val();
+
+                    // console.log(field); console.log(op); console.log(valx);
+
+                    if (valx.length !== 0) {
+                        result.push({"field": field, "op": op, "value": valx})
+                    }
+                })
+
+                window.location.href = urlfor + '?page=' + page + '&rows=' + rows + '&sort=' + sort + '&order=' + order + '&filter_rules=' + JSON.stringify(result)
+            }
+
+            // version b
+            var filtering_and_go_vb = function (urlfor, page, rows, sort, order) {
+
+                var result = [];
+
+                $.each($('thead input'), function (a, b) {
+                    var field = b.name;
+                    var op = $(this).data('op');
+                    var valx = $(this).val();
+
+                    console.log('this', $(this));
+                    console.log(field);
+                    console.log('op', op);
+                    console.log(valx);
+
+                    if (valx.length !== 0) {
+                        result.push({"field": field, "op": op, "value": valx})
+                    }
+                })
+
+                window.location.href = urlfor + '?page=' + page + '&rows=' + rows + '&sort=' + sort + '&order=' + order + '&filter_rules=' + JSON.stringify(result)
+            }
+
+            function put_op(field_name, operator) {
+                $('thead input[name=' + field_name + ']').data('op', operator);
+            }
+
+            var adding_search_head_value = function (filter_rules_string) {
+
+                var filter_rules = filter_rules_string;
+
+                var obj = JSON.parse(filter_rules);
+
+                // tempatkan filter
+                $.each(obj, function (a, v) {
+                    console.log(a);
+                    console.log(v);
+
+                    $('thead input[name=' + v.field + ']').val(v.value);
+                    $('thead input[name=' + v.field + ']').data('op', v.op);
+
+                })
+            }
+        </script>
+
+    </head>
+    <body class="data-scrollbar-auto-hide">
+
+        <!-- <div id="spinner"></div> -->
+
+        <div id="app">
+            <div class="main-wrapper" >
+                <nav class="navbar navbar-expand-lg main-navbar">
+                    <a class="header-brand" href="index.html">
+
+                        <!-- <img src="/assets/images/logo_name_emaspintar_color.png" class="header-brand-img" style="height: 4rem !important; top: 0px;" alt="Kharna-Admin  logo"> -->
+                    </a>
+                    <form class="form-inline mr-auto">
+                        <ul class="navbar-nav mr-3">
+                            <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="ion ion-navicon-round"></i></a></li>
+                            <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-md-none navsearch"><i class="ion ion-search"></i></a></li>
+                        </ul>
+                        <div class="search-element">
+                            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-primary" type="submit"><i class="ion ion-search"></i></button>
+                        </div>
+                    </form>
+
+                    <ul class="navbar-nav navbar-right">
+                        <li class="dropdown dropdown-list-toggle"><a href="<%= url_for(action: 'index', controller: '/sp/info') %>" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep"><i class="ion-ios-email-outline"></i></a>
+                            <div class="dropdown-menu dropdown-list dropdown-menu-right">
+                                <div class="dropdown-header">Messages
+                                    <div class="float-right">
+                                        <a href="#">View All</a>
+                                    </div>
+                                </div>
+                                <div class="dropdown-list-content">
+                                    <a href="#" class="dropdown-item dropdown-item-unread">
+                                        <img alt="image" src="/sp_assets/img/avatar/avatar-1.jpeg" class="rounded-circle dropdown-item-img">
+                                        <div class="dropdown-item-desc">
+                                            <div class="dropdownmsg d-flex">
+                                                <div class="">
+                                                    <b>Stewart Ball</b>
+                                                    <p>Your template awesome</p>
+                                                </div>
+                                                <div class="time">6 hours ago</div>
+                                            </div>
+
+                                        </div>
+                                    </a>
+                                    <a href="#" class="dropdown-item dropdown-item-unread">
+                                        <img alt="image" src="/sp_assets/img/avatar/avatar-2.jpeg" class="rounded-circle dropdown-item-img">
+                                        <div class="dropdown-item-desc">
+                                            <div class="dropdownmsg d-flex">
+                                                <div class="">
+                                                    <b>Jonathan North</b>
+                                                    <p>Your Order Shipped.....</p>
+                                                </div>
+                                                <div class="time">45 mins ago</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="dropdown-item">
+                                        <img alt="image" src="/sp_assets/img/avatar/avatar-4.jpeg" class="rounded-circle dropdown-item-img">
+                                        <div class="dropdown-item-desc">
+                                            <div class="dropdownmsg d-flex">
+                                                <div class="">
+                                                    <b>Victor Taylor</b>
+                                                    <p>Hi!, I' am web developer</p>
+                                                </div>
+                                                <div class="time"> 8 hours ago</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="dropdown-item">
+                                        <img alt="image" src="/sp_assets/img/avatar/avatar-3.jpeg" class="rounded-circle dropdown-item-img">
+                                        <div class="dropdown-item-desc">
+                                            <div class="dropdownmsg d-flex">
+                                                <div class="">
+                                                    <b>Ruth	Arnold</b>
+                                                    <p>Hi!, I' am web designer</p>
+                                                </div>
+                                                <div class="time"> 3 hours ago</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="dropdown-item">
+                                        <img alt="image" src="/sp_assets/img/avatar/avatar-5.jpeg" class="rounded-circle dropdown-item-img">
+                                        <div class="dropdown-item-desc">
+                                            <div class="dropdownmsg d-flex">
+                                                <div class="">
+                                                    <b>Sam	Lyman</b>
+                                                    <p>Hi!, I' am java developer</p>
+                                                </div>
+                                                <div class="time"> 15 mintues ago</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link  nav-link-lg beep"><i class="ion-ios-bell-outline"></i></a>
+                            <div class="dropdown-menu dropdown-list dropdown-menu-right">
+                                <div class="dropdown-header">Notifications
+                                    <div class="float-right">
+                                        <a href="#">View All</a>
+                                    </div>
+                                </div>
+                                <div class="dropdown-list-content">
+                                    <a href="#" class="dropdown-item">
+                                        <i class="fa fa-users text-primary"></i>
+                                        <div class="dropdown-item-desc">
+                                            <b>So many Users Visit your template</b>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="dropdown-item">
+                                        <i class="fa fa-exclamation-triangle text-danger"></i>
+                                        <div class="dropdown-item-desc">
+                                            <b>Error message occurred....</b>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="dropdown-item">
+                                        <i class="fa fa-users text-warning"></i>
+                                        <div class="dropdown-item-desc">
+                                            <b> Adding new people</b>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="dropdown-item">
+                                        <i class="fa fa-shopping-cart text-success"></i>
+                                        <div class="dropdown-item-desc">
+                                            <b>Your items Arrived</b>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="dropdown-item">
+                                        <i class="fa fa-comment text-primary"></i>
+                                        <div class="dropdown-item-desc">
+                                            <b>New Message received</b> <div class="float-right"><span class="badge badge-pill badge-danger badge-sm">67</span></div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="dropdown-item">
+                                        <i class="fa fa-users text-primary"></i>
+                                        <div class="dropdown-item-desc">
+                                            <b>So many Users Visit your template</b>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="dropdown dropdown-list-toggle">
+                            <a href="#" class="nav-link nav-link-lg full-screen-link">
+                                <i class="ion-arrow-expand"  id="fullscreen-button"></i>
+                            </a>
+                        </li>
+                        <% @profil = Oadm.where(id: session[:oadm_id]).first %>
+                        <% if @profil %>
+                            <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
+
+                                <div class="d-sm-none d-lg-inline-block"><%= @profil.oadm_nama %></div></a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="profile.html" class="dropdown-item has-icon">
+                                        <i class="ion ion-android-person"></i> Profile
+                                    </a>
+                                    <a href="profile.html" class="dropdown-item has-icon">
+                                        <i class="ion-android-drafts"></i> Messages
+                                    </a>
+                                    <a href="profile.html" class="dropdown-item has-icon">
+                                        <i class="ion ion-gear-a"></i> Settings
+                                    </a>
+
+                                        <i class="ion-ios-redo"></i> Logout
+                                    </a>
+                                </div>
+                            </li>
+                        <% end %>
+                    </ul>
+                </nav>
+
+                <aside class="app-sidebar">
+                    <% @profil = Oadm.where(id: session[:oadm_id]).first %>
+                    <% if @profil %>
+                        <div class="app-sidebar__user">
+                            <div class="dropdown">
+                                <a class="nav-link pl-2 pr-2 leading-none d-flex" data-toggle="dropdown" href="#">
+
+                                    <span class="ml-2 d-lg-block">
+                                        <span class="text-white app-sidebar__user-name mt-5"><%= @profil.oadm_email %></span><br>
+                                        <span class="text-muted app-sidebar__user-name text-sm"></span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    <% end %>
+                    <ul class="side-menu">
+                        <li>
+                            <a class="side-menu__item" href="<%= url_for(controller: '/sp/beranda', action: 'index') %>">
+                                <i class="side-menu__icon fa fa-laptop"></i><span class="side-menu__label">Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="side-menu__item" href="<%= url_for(action: 'index', controller: '/sp/user') %>">
+                                <i class="side-menu__icon fa fa-user"></i><span class="side-menu__label">User</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="side-menu__item" href="<%= url_for(action: 'index', controller: '/sp/peserta') %>">
+                                <i class="side-menu__icon fa fa-user"></i><span class="side-menu__label">Data Peserta</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="side-menu__item" href="<%= url_for(action: 'index', controller: '/sp/guru') %>">
+                                <i class="side-menu__icon fa fa-user"></i><span class="side-menu__label">Data Guru</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="side-menu__item" href="<%= url_for(action: 'index', controller: '/sp/staf') %>">
+                                <i class="side-menu__icon fa fa-user"></i><span class="side-menu__label">Data Staf</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="side-menu__item" href="<%= url_for(action: 'index', controller: '/sp/info') %>">
+                                <i class="side-menu__icon fa fa-info"></i><span class="side-menu__label">Info</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="side-menu__item" href="<%= url_for(action: 'index', controller: '/sp/pesan') %>">
+                                <i class="side-menu__icon fa fa-inbox"></i><span class="side-menu__label">Pesan</span>
+                            </a>
+                        </li>
+                        <li>
+                          <a class="side-menu__item" href="<%= url_for(controller: '/sp/auth', action: 'signout') %>">
+                              <i class="side-menu__icon fa fa-user"></i>
+                              <span class="side-menu__label">Keluar</span>
+                          </a>
+                        </li>
+                    </ul>
+                </aside>
+
+                <div class="app-content">
+                    <section class="section">
+                        <% if flash[:notif] %>
+                        <div class="row">
+                            <div class="col-md-12 alert alert-info">
+                                <%= flash[:notif].html_safe %>
+                            </div>
+                        </div>
+                        <% end %>
+                        <%= yield %>
+                    </section>
+                </div>
+
+                <footer class="main-footer">
+                    <div class="text-center">
+                        Copyright &copy; poshchain.com 2018. Design By<a href="https://nitzaalfinas.com/"> POSHChain</a>
+                    </div>
+                </footer>
+
+            </div>
+        </div>
+    </body>
+</html>

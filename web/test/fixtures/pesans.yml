@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pesan_nama_pengirim: MyString
+  pesan_telepon_pengirim: MyString
+  pesan_email_pengirim: MyString
+  pesan_subjek: MyString
+  pesan_isi: MyString
+
+two:
+  pesan_nama_pengirim: MyString
+  pesan_telepon_pengirim: MyString
+  pesan_email_pengirim: MyString
+  pesan_subjek: MyString
+  pesan_isi: MyString

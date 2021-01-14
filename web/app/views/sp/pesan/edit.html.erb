@@ -1,0 +1,27 @@
+<%= form_for(@data, url: url_for(action: 'edit_post', pesan_id: @data.id), multipart: true ) do |f| %>
+<div class="form-group">
+  <label for="">Nama Pengirim</label>
+  <%= f.text_field :pesan_nama_pengirim, {class: 'form-control'} %>
+</div>
+<div class="form-group">
+  <label for="">Telepon Pengirim</label>
+  <%= f.text_field :pesan_telepon_pengirim, {class: 'form-control'} %>
+</div>
+<div class="form-group">
+  <label for="">Email Pengirim</label>
+  <%= f.text_field :pesan_email_pengirim, {class: 'form-control'} %>
+</div>
+<div class="form-group">
+  <label for="">Subjek</label>
+  <%= f.text_field :pesan_subjek, {class: 'form-control'} %>
+</div>
+
+<div class="form-group">
+  <label for="">Isi</label>
+  <%= f.text_field :pesan_isi, {class: 'form-control'} %>
+</div>
+
+<div class="form-group">
+  <input type="submit" value="Perbarui Data" class="btn btn-primary">
+</div>
+<% end %>

@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  guru_nama: MyString
+  guru_tgl_lahir: MyString
+  guru_tempat_lahir: MyString
+  guru_jk: MyString
+  guru_status_kepegawaian: MyString
+  guru_alamat: MyString
+  guru_telepon: MyString
+  guru_email: MyString
+  guru_bidang_studi: MyString
+  guru_pendidikan_terakhir: MyString
+  guru_agama: MyString
+  guru_status_perkawinan: MyString
+  guru_photo: MyString
+
+two:
+  guru_nama: MyString
+  guru_tgl_lahir: MyString
+  guru_tempat_lahir: MyString
+  guru_jk: MyString
+  guru_status_kepegawaian: MyString
+  guru_alamat: MyString
+  guru_telepon: MyString
+  guru_email: MyString
+  guru_bidang_studi: MyString
+  guru_pendidikan_terakhir: MyString
+  guru_agama: MyString
+  guru_status_perkawinan: MyString
+  guru_photo: MyString

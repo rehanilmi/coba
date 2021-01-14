@@ -1,0 +1,2 @@
+module Sp::UserHelper
+end

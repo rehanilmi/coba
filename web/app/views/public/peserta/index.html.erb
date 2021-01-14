@@ -1,0 +1,117 @@
+<%= form_for(@data, url: url_for(action: 'index', pesertaaa_id: @data.id), multipart: true ) do |f| %>
+
+<div class="container">
+  <table class="table table-striped">
+    <h2>Data Peserta</h2>
+    <tr>
+      <td width=130px>Nama</td>
+      <td width=50px>:</td>
+      <td><%= @data.pesertaa_nama %></td>
+    </tr>
+
+    <tr>
+      <td width=130px>Tanggal Lahir</td>
+      <td>:</td>
+      <td><%= @data.pesertaa_tanggal_lahir %></td>
+    </tr>
+    <tr>
+      <td width=130px>Tempat Lahir</td>
+      <td>:</td>
+      <td><%= @data.pesertaa_tempat_lahir %></td>
+    </tr>
+    <tr>
+      <td width=130px>Jenis Kelamin</td>
+      <td>:</td>
+      <td><%= @data.pesertaa_jk %></td>
+    </tr>
+    <tr>
+      <td width=130px>NIK</td>
+      <td>:</td>
+      <td><%= @data.pesertaa_nik %></td>
+    </tr>
+    <tr>
+      <td width=130px>Alamat</td>
+      <td>:</td>
+      <td><%= @data.pesertaa_alamat %></td>
+    </tr>
+    <tr>
+      <td width=130px>Nama Ayah</td>
+      <td>:</td>
+      <td><%= @data.pesertaa_nama_ayah %></td>
+    </tr>
+    <tr>
+      <td width=130px>Nama Ibu</td>
+      <td>:</td>
+      <td><%= @data.pesertaa_nama_ibu %></td>
+    </tr>
+    <tr>
+      <td width=130px>Tinggi</td>
+      <td>:</td>
+      <td><%= @data.pesertaa_tinggi %></td>
+    </tr>
+    <tr>
+      <td width=130px>Berat Badan</td>
+      <td>:</td>
+      <td><%= @data.pesertaa_bb %></td>
+    </tr>
+    <tr>
+      <td width=130px>Jarak sekolah</td>
+      <td>:</td>
+      <td><%= @data.pesertaa_jarak_sekolah %></td>
+    </tr>
+    <tr>
+      <td width=130px>Golongan darah</td>
+      <td>:</td>
+      <td><%= @data.pesertaa_gol_darah %></td>
+    </tr>
+    <tr>
+      <td width=130px>Jumlah saudara</td>
+      <td>:</td>
+      <td><%= @data.pesertaa_jumlah_saudara %></td>
+    </tr>
+    <tr>
+      <td width=130px>Telepon</td>
+      <td>:</td>
+      <td><%= @data.pesertaa_telepon %></td>
+    </tr>
+    <tr>
+      <td width=130px>Email</td>
+      <td>:</td>
+      <td><%= @data.pesertaa_email %></td>
+    </tr>
+    <tr>
+      <td width=130px>Bahasa sehari-hari</td>
+      <td>:</td>
+      <td><%= @data.pesertaa_bahasa_seharihari %></td>
+    </tr>
+    <tr>
+      <td width=130px>Jenjang Pendidikan</td>
+      <td>:</td>
+      <td><%= @data.pesertaa_jenjang_pendidikan %></td>
+    </tr>
+    <tr>
+      <td width=130px>Status</td>
+      <td>:</td>
+      <td><%= @data.pesertaa_status %></td>
+    </tr>
+    <tr>
+      <td width=130px>Kategori</td>
+      <td>:</td>
+      <td><%= @data.pesertaa_kategori %></td>
+    </tr>
+    <tr>
+      <td width=130px>JWT Token</td>
+      <td>:</td>
+      <td><%= @data.pesertaa_jwt_token %></td>
+    </tr>
+    <tr>
+      <td width=130px>Photo</td>
+      <td>:</td>
+      <td><img src="<%= @data.pesertaa_photo %>" style="width: 100px"></td>
+    </tr>
+  </table>
+  <div class="row">
+    <a href="<%= url_for action: 'edit', pesertaa_id: @data.id %>" class="btn btn-small btn-default">Edit</a>
+  </div>
+</div>
+<% end %>

@@ -1,0 +1,2 @@
+module Sp::InfoHelper
+end

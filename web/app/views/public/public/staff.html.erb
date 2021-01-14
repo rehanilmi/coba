@@ -1,0 +1,30 @@
+<main role="main">
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <section id="staff" class="nb-5">
+      <div class="container" style=text-align:center>
+        <div class="row">
+          <% @stafs.each do |staf| %>
+          <div class="col">
+              <div>
+                <img src="<%= staf.staf_photo %>" style="width: 200px">
+              </div>
+
+              <div><%= staf.staf_nama %></div>
+              <div><%= staf.staf_email %></div>
+              <div><%= staf.staf_telepon %></div>
+              <div><%= staf.staf_alamat %></div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      </section>
+      <!-- <h1 class="display-3">Hello, world!</h1>
+      <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+      <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more »</a></p> -->
+    </div>
+  </div>
+
+</main>

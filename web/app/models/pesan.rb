@@ -1,0 +1,2 @@
+class Pesan < ApplicationRecord
+end

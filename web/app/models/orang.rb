@@ -1,0 +1,3 @@
+class Orang < ApplicationRecord
+
+end

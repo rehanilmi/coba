@@ -1,0 +1,178 @@
+<%= form_for(@data, url: url_for(action: 'baru_post'), multipart: true ) do |f| %>
+<div class="form-group">
+  <div class="row">
+    <%= f.label 'Nama Lengkap', { class: 'col-md-2' } %>
+    <div class="col-md-8">
+        <%= f.text_field :pesertaa_nama, { class: 'form-control', placeholder: '' } %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="row">
+    <%= f.label 'Tanggal Lahir', { class: 'col-md-2' } %>
+    <div class="col-md-8">
+        <%= f.date_field :pesertaa_tanggal_lahir, { class: 'form-control', placeholder: '' } %>
+    </div>
+  </div>
+</div>
+
+
+<div class="form-group">
+  <div class="row">
+    <%= f.label 'Tempat Lahir', { class: 'col-md-2' } %>
+    <div class="col-md-8">
+        <%= f.text_field :pesertaa_tempat_lahir, { class: 'form-control', placeholder: '' } %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="row">
+    <%= f.label 'NIK', { class: 'col-md-2' } %>
+    <div class="col-md-8">
+        <%= f.text_field :pesertaa_nik, { class: 'form-control', placeholder: '' } %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="row">
+    <%= f.label 'Jenis Kelamin', { class: 'col-md-2' } %>
+    <div class="col-md-8">
+        <%= f.select(:pesertaa_jk, ['Laki-laki', 'Perempuan'], {}, { class: 'form-control', placeholder: '' } )%>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="row">
+    <%= f.label 'Alamat Lengkap', { class: 'col-md-2' } %>
+    <div class="col-md-8">
+        <%= f.text_area :pesertaa_alamat, { class: 'form-control', placeholder: '' } %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="row">
+    <%= f.label 'Nama Ayah', { class: 'col-md-2' } %>
+    <div class="col-md-8">
+        <%= f.text_field :pesertaa_nama_ayah, { class: 'form-control', placeholder: '' } %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="row">
+    <%= f.label 'Nama Ibu', { class: 'col-md-2' } %>
+    <div class="col-md-8">
+        <%= f.text_field :pesertaa_nama_ibu, { class: 'form-control', placeholder: '' } %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="row">
+    <%= f.label 'Telepon', { class: 'col-md-2' } %>
+    <div class="col-md-8">
+        <%= f.text_field :pesertaa_telepon, { class: 'form-control', placeholder: '' } %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="row">
+    <%= f.label 'Tinggi Badan', { class: 'col-md-2' } %>
+    <div class="col-md-8">
+        <%= f.text_field :pesertaa_tinggi, { class: 'form-control', placeholder: '' } %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="row">
+    <%= f.label 'Berat Badan', { class: 'col-md-2' } %>
+    <div class="col-md-8">
+        <%= f.text_field :pesertaa_bb, { class: 'form-control', placeholder: '' } %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="row">
+    <%= f.label 'Golongan Darah', { class: 'col-md-2' } %>
+    <div class="col-md-8">
+        <%= f.text_field :pesertaa_gol_darah, { class: 'form-control', placeholder: '' } %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="row">
+    <%= f.label 'Jarak Rumah Kesekolah', { class: 'col-md-2' } %>
+    <div class="col-md-8">
+        <%= f.text_field :pesertaa_jarak_sekolah, { class: 'form-control', placeholder: '' } %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="row">
+    <%= f.label 'Jumlah Saudara', { class: 'col-md-2' } %>
+    <div class="col-md-8">
+        <%= f.text_field :pesertaa_jumlah_saudara, { class: 'form-control', placeholder: '' } %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="row">
+    <%= f.label 'Bahasa Sehari-hari', { class: 'col-md-2' } %>
+    <div class="col-md-8">
+        <%= f.text_field :pesertaa_bahasa_seharihari, { class: 'form-control', placeholder: '' } %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="row">
+    <%= f.label 'Kebutuhan Khusus', { class: 'col-md-2' } %>
+    <div class="col-md-8">
+        <%= f.text_field :pesertaa_kategori, { class: 'form-control', placeholder: '' } %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="row">
+    <%= f.label 'Jenjang Pendidikan', { class: 'col-md-2' } %>
+    <div class="col-md-8">
+        <%= f.text_field :pesertaa_jenjang_pendidikan, { class: 'form-control', placeholder: '' } %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="row">
+    <%= f.label 'Photo', { class: 'col-md-2' } %>
+    <div class="col-md-8">
+        <%= f.file_field :pesertaa_photo, { class: 'form-control', placeholder: '' } %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="row">
+    <%= f.label 'Status', { class: 'col-md-2' } %>
+    <div class="col-md-8">
+        <%= f.text_field :pesertaa_status, { class: 'form-control', placeholder: '' } %>
+    </div>
+  </div>
+</div>
+
+
+<div class="form-group">
+  <input type="submit" value="Masukan" class="btn btn-primary">
+</div>
+<% end %>
