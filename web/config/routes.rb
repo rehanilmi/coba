@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-root to: 'public#main'
+root to: 'public/public#main'
   namespace :public do
     get 'public/main'
     resource :auth2 do
