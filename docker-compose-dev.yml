@@ -53,7 +53,7 @@ services:
       EMAIL_SMTP: smtpout.secureserver.net
       EMAIL_SMTP_PORT: 587
     ports:
-      - "3000:3000"
+      - "3002:3000"
     depends_on:
       - thedatabase
     networks:
